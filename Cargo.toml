@@ -2,8 +2,28 @@
 name = "test20250407"
 version = "0.1.0"
 edition = "2024"
+description = "A music player built with Iced"
+authors = ["Your Name"]
+license = "MIT"
+
+[package.metadata.bundle]
+name = "Music Player"
+identifier = "com.zyk.music-player-iced"
+icon = ["icons/128x128.svg"]
+version = "0.1.0"
+copyright = "Copyright (c) 2024 Your Name"
+category = "Music"
+short_description = "A simple music player"
+long_description = "A music player built with Rust and Iced framework"
 
 [dependencies]
-iced = { version = "0.13.1", features = ["tokio"] }
+iced = { version = "0.13.1", features = ["tokio", "system"] }
 rfd = "0.15.3"
 rodio = "0.20.1"
+
+[profile.release]
+opt-level = 'z'     # 优化级别设置为最小化二进制大小
+lto = true          # 启用链接时优化
+codegen-units = 1   # 减少并行代码生成单元以提高优化
+strip = true        # 移除调试符号
+panic = 'abort'     # 在 panic 时直接终止，减少二进制大小
