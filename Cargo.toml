@@ -1,0 +1,9 @@
+[package]
+name = "test20250407"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+iced = { version = "0.13.1", features = ["tokio"] }
+rfd = "0.15.3"
+rodio = "0.20.1"
