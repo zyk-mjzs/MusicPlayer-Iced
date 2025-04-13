@@ -1,3 +1,7 @@
+## 预览ui
+`cargo run -p iced_ui`
+`cargo watch -x "run -p iced_ui"`
+
 cargo add cargo-bundle
 
 // 编译成 mac 平台的可执行文件

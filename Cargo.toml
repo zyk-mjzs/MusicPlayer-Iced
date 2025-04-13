@@ -27,3 +27,7 @@ lto = true          # 启用链接时优化
 codegen-units = 1   # 减少并行代码生成单元以提高优化
 strip = true        # 移除调试符号
 panic = 'abort'     # 在 panic 时直接终止，减少二进制大小
+
+[workspace]
+resolver = "3"
+members = ["crates/iced_ui"]

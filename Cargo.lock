@@ -1734,6 +1734,13 @@ dependencies = [
 ]
 
 [[package]]
+name = "iced_ui"
+version = "0.1.0"
+dependencies = [
+ "iced",
+]
+
+[[package]]
 name = "iced_wgpu"
 version = "0.13.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
