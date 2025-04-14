@@ -30,4 +30,4 @@ panic = 'abort'     # 在 panic 时直接终止，减少二进制大小
 
 [workspace]
 resolver = "3"
-members = ["crates/iced_ui"]
+members = [ "crates/iced_font_awesome","crates/iced_ui", "crates/iced_font_awesome"]
