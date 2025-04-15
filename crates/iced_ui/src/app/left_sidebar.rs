@@ -1,5 +1,5 @@
 use iced::widget::{column, container, text};
-use iced::{Element, Length, alignment, alignment::Horizontal};
+use iced::{Element, Length, alignment::Horizontal};
 
 use iced_ui::button::text_button;
 
@@ -26,7 +26,12 @@ pub fn left_sidebar() -> Element<'static, Message> {
             .width(Length::Fill)
             .height(Length::from(50))
             .align_x(Horizontal::Left)
-            .on_press(Message::NavigateTo(Page::Progress))
+            .on_press(Message::NavigateTo(Page::Progress)),
+        text_button("Icon")
+            .width(Length::Fill)
+            .height(Length::from(50))
+            .align_x(Horizontal::Left)
+            .on_press(Message::NavigateTo(Page::Icon)),
     ]
     .width(Length::Fill)
     .align_x(Horizontal::Left);

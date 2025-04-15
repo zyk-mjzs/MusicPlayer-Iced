@@ -1,6 +1,7 @@
 #[macro_export]
 macro_rules! font_awesome_formats {
     ($ident: ident, $($name:ident => $unicode:expr),* $(,)?) => {
+        #[derive(Debug, strum_macros::EnumIter)]
         pub enum $ident {
             $($name),*
         }
@@ -14,10 +15,6 @@ macro_rules! font_awesome_formats {
     };
 }
 
-mod brands;
-
-pub use brands::*;
-
 mod regular;
 
 pub use regular::*;
@@ -25,3 +22,7 @@ pub use regular::*;
 mod solid;
 
 pub use solid::*;
+
+mod brands;
+
+pub use brands::*;

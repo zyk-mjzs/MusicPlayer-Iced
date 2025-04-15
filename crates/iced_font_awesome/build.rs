@@ -34,6 +34,7 @@ fn generate_icon_config() {
         r#"#[macro_export]
 macro_rules! font_awesome_formats {
     ($ident: ident, $($name:ident => $unicode:expr),* $(,)?) => {
+        #[derive(Debug, strum_macros::EnumIter)]
         pub enum $ident {
             $($name),*
         }

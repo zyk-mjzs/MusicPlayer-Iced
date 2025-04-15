@@ -1,6 +1,7 @@
 use iced::widget::{button, column, container, row, text};
 use iced::{Element, Length, alignment};
 
+use super::icon_page::icon_page;
 use super::left_sidebar::left_sidebar;
 
 #[derive(Default)]
@@ -14,6 +15,7 @@ pub enum Page {
     Text,
     Button,
     Progress,
+    Icon,
 }
 
 #[derive(Debug, Clone)]
@@ -85,11 +87,16 @@ impl App {
         .into()
     }
 
+    fn view_icon_page(&self) -> Element<Message> {
+        icon_page()
+    }
+
     pub fn view(&self) -> Element<Message> {
         let page_content = match self.current_page {
             Page::Text => self.view_text_page(),
             Page::Button => self.view_button_page(),
             Page::Progress => self.view_progress_page(),
+            Page::Icon => self.view_icon_page(),
         };
 
         let main_content = container(page_content)

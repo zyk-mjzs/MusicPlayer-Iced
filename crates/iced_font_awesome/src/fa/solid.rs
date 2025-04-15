@@ -1,4 +1,4 @@
-use crate::font_awesome_formats;
+use crate::{font_awesome_formats, load_font_awesome};
 
 use iced::{Font, font::Family};
 use iced::widget::{Text, text};
