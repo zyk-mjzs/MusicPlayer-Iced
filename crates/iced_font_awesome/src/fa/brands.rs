@@ -1003,7 +1003,7 @@ pub fn brands<'a>(c: FontAwesomeBrands) -> Text<'a> {
 }
 
 const FONTAWESOMEBRANDS_FONT: Font = Font {
-    family: Family::Name("Font Awesome 6 Free"),
+    family: Family::Name("Font Awesome 6 Brands"),
     weight: iced::font::Weight::Normal,
     ..Font::DEFAULT
 };

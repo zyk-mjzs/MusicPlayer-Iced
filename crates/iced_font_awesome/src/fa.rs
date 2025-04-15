@@ -1,3 +1,7 @@
-pub mod solid;
-pub mod regular;
-pub mod brands;
+mod solid;
+mod regular;
+mod brands;
+
+pub use solid::*;
+pub use regular::*;
+pub use brands::*;

@@ -68,7 +68,14 @@ fn generate_icon_file(icon_type: &str, json: &Value) {
     output.push_str(&format!("    text(c.to_string()).font({}_FONT)\n", enum_name.to_uppercase()));
     output.push_str("}\n\n");
     output.push_str(&format!("const {}_FONT: Font = Font {{\n", enum_name.to_uppercase()));
-    output.push_str("    family: Family::Name(\"Font Awesome 6 Free\"),\n");
+    output.push_str(&format!("    family: Family::Name(\"Font Awesome 6 {}\"),\n",
+        match icon_type {
+            "regular" => "Free",
+            "solid" => "Free",
+            "brands" => "Brands",
+            _ => panic!("Invalid icon type"),
+        }
+    ));
     output.push_str(&format!("    weight: iced::font::Weight::{},\n", 
         match icon_type {
             "regular" => "Normal",
