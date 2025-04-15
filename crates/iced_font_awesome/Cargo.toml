@@ -5,6 +5,4 @@ edition = "2024"
 
 [dependencies]
 iced = { version = "0.13.1", features = ["tokio", "system"] }
-
-[dev-dependencies]
 serde_json = "1.0"

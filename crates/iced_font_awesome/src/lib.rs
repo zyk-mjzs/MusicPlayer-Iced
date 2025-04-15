@@ -1,4 +1,4 @@
-use iced::{font::{load, Family}, Font};
+use iced::font::load;
 
 mod fa;
 pub use fa::*;
@@ -11,7 +11,6 @@ const BRANDS_FONT_DATA: &[u8] =
 
 const SOLID_FONT_DATA: &[u8] =
     include_bytes!("../assets/fontawesome-free-6.7.2-web/webfonts/fa-solid-900.ttf");
-
 
 pub fn load_font_awesome() {
     let _ = load(REGULAR_FONT_DATA);

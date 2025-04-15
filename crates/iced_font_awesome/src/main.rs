@@ -38,7 +38,7 @@ fn generate_icon_file(icon_type: &str, json: &Value) {
 
     output.push_str("}\n\n");
     output.push_str(&format!("impl {} {{\n", enum_name));
-    output.push_str("    pub fn to_string(&self) -> String {\n");
+    output.push_str("    pub fn to_string(&self) -> &str {\n");
     output.push_str("        match self {\n");
 
     if let Value::Object(map) = json {
@@ -54,7 +54,7 @@ fn generate_icon_file(icon_type: &str, json: &Value) {
                                 Some(f) => f.to_uppercase().collect::<String>() + c.as_str(),
                             }
                         }).collect::<Vec<String>>().join("");
-                        output.push_str(&format!("            Self::{} => \"\\u{{{}}}\".to_owned(),\n", formatted_key, unicode));
+                        output.push_str(&format!("            Self::{} => \"\\u{{{}}}\",\n", formatted_key, unicode));
                     }
                 }
             }
@@ -65,9 +65,9 @@ fn generate_icon_file(icon_type: &str, json: &Value) {
     output.push_str("    }\n");
     output.push_str("}\n\n");
     output.push_str(&format!("pub fn {}<'a>(c: {}) -> Text<'a> {{\n", icon_type, enum_name));
-    output.push_str(&format!("    text(c.to_string()).font({}_FONT)\n", enum_name.to_uppercase()));
+    output.push_str("    text(c.to_string().to_owned()).font(FONT)\n");
     output.push_str("}\n\n");
-    output.push_str(&format!("const {}_FONT: Font = Font {{\n", enum_name.to_uppercase()));
+    output.push_str("const FONT: Font = Font {\n");
     output.push_str(&format!("    family: Family::Name(\"Font Awesome 6 {}\"),\n",
         match icon_type {
             "regular" => "Free",
