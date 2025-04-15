@@ -169,7 +169,7 @@ pub enum FontAwesomeRegular {
 }
 
 impl FontAwesomeRegular {
-    pub fn to_string(&self) -> &str {
+    pub fn to_unicode(&self) -> &str {
         match self {
             Self::AddressBook => "\u{f2b9}",
             Self::AddressCard => "\u{f2bb}",
@@ -339,7 +339,7 @@ impl FontAwesomeRegular {
 }
 
 pub fn regular<'a>(c: FontAwesomeRegular) -> Text<'a> {
-    text(c.to_string().to_owned()).font(FONT)
+    text(c.to_unicode().to_owned()).font(FONT)
 }
 
 const FONT: Font = Font {

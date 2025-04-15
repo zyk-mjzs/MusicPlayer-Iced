@@ -38,7 +38,7 @@ fn generate_icon_file(icon_type: &str, json: &Value) {
 
     output.push_str("}\n\n");
     output.push_str(&format!("impl {} {{\n", enum_name));
-    output.push_str("    pub fn to_string(&self) -> &str {\n");
+    output.push_str("    pub fn to_unicode(&self) -> &str {\n");
     output.push_str("        match self {\n");
 
     if let Value::Object(map) = json {
@@ -65,7 +65,7 @@ fn generate_icon_file(icon_type: &str, json: &Value) {
     output.push_str("    }\n");
     output.push_str("}\n\n");
     output.push_str(&format!("pub fn {}<'a>(c: {}) -> Text<'a> {{\n", icon_type, enum_name));
-    output.push_str("    text(c.to_string().to_owned()).font(FONT)\n");
+    output.push_str("    text(c.to_unicode().to_owned()).font(FONT)\n");
     output.push_str("}\n\n");
     output.push_str("const FONT: Font = Font {\n");
     output.push_str(&format!("    family: Family::Name(\"Font Awesome 6 {}\"),\n",

@@ -499,7 +499,7 @@ pub enum FontAwesomeBrands {
 }
 
 impl FontAwesomeBrands {
-    pub fn to_string(&self) -> &str {
+    pub fn to_unicode(&self) -> &str {
         match self {
             Self::AccessibleIcon => "\u{f368}",
             Self::Accusoft => "\u{f369}",
@@ -999,7 +999,7 @@ impl FontAwesomeBrands {
 }
 
 pub fn brands<'a>(c: FontAwesomeBrands) -> Text<'a> {
-    text(c.to_string().to_owned()).font(FONT)
+    text(c.to_unicode().to_owned()).font(FONT)
 }
 
 const FONT: Font = Font {

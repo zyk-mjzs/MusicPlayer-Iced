@@ -1398,7 +1398,7 @@ pub enum FontAwesomeSolid {
 }
 
 impl FontAwesomeSolid {
-    pub fn to_string(&self) -> &str {
+    pub fn to_unicode(&self) -> &str {
         match self {
             Self::A => "\u{41}",
             Self::AddressBook => "\u{f2b9}",
@@ -2797,7 +2797,7 @@ impl FontAwesomeSolid {
 }
 
 pub fn solid<'a>(c: FontAwesomeSolid) -> Text<'a> {
-    text(c.to_string().to_owned()).font(FONT)
+    text(c.to_unicode().to_owned()).font(FONT)
 }
 
 const FONT: Font = Font {
