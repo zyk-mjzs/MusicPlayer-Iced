@@ -14,6 +14,8 @@ impl Default for Theme {
         let family_name = "PingFang SC";
         #[cfg(target_os = "windows")]
         let family_name = "Microsoft YaHei";
+        #[cfg(target_os = "linux")]
+        let family_name = "文泉驿正黑";
         #[cfg(not(any(target_os = "macos", target_os = "windows")))]
         let family_name = "Arial";
 

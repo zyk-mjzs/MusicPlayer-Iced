@@ -1,4 +1,5 @@
 use crate::theme::Theme;
+use iced::alignment::{Horizontal, Vertical};
 use iced::widget::{button, text};
 use iced::{Background, Border, Element, Length, Shadow};
 
@@ -11,6 +12,7 @@ pub struct TextButton<'a, Message> {
     text: &'a str,
     width: Length,
     height: Length,
+    align_x: Horizontal,
     on_press: Option<Message>,
     theme: Theme,
 }
@@ -21,6 +23,7 @@ impl<'a, Message> TextButton<'a, Message> {
             text,
             width: Length::Shrink,
             height: Length::Shrink,
+            align_x: Horizontal::Center,
             on_press: None,
             theme: Theme::default(),
         }
@@ -33,6 +36,11 @@ impl<'a, Message> TextButton<'a, Message> {
 
     pub fn height(mut self, height: Length) -> Self {
         self.height = height;
+        self
+    }
+
+    pub fn align_x(mut self, align_x: Horizontal) -> Self {
+        self.align_x = align_x;
         self
     }
 
@@ -55,13 +63,14 @@ where
         let mut btn = button::Button::new(
             text(button.text)
                 .font(button.theme.font.bold)
-                .center(),
+                .width(Length::Fill)
+                .align_y(Vertical::Center),
         )
         .style(move |_, is_hovered: button::Status| button::Style {
             background: match is_hovered {
-                button::Status::Hovered => {
-                    Some(Background::Color(button.theme.color.primary.scale_alpha(0.1)))
-                }
+                button::Status::Hovered => Some(Background::Color(
+                    button.theme.color.primary.scale_alpha(0.1),
+                )),
                 _ => None,
             },
             text_color: button.theme.color.primary,
