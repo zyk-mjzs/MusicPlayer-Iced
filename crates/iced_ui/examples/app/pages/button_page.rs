@@ -1,7 +1,7 @@
 use crate::app::index::Message;
 use iced::widget::{column, row, text};
 use iced::{Element, Length, alignment};
-use iced_ui::components::button::text_button;
+use iced_ui::components::button::{cancel_button, confirm_button, text_button};
 
 pub fn button_page<'a>() -> Element<'a, Message> {
     column![
@@ -10,7 +10,15 @@ pub fn button_page<'a>() -> Element<'a, Message> {
             .width(Length::Fill)
             .align_x(alignment::Horizontal::Center),
         row![
-            text_button("text_button").on_press(Message::Press),
+            text_button("text_button")
+                .height(Length::from(40))
+                .on_press(Message::Press),
+            confirm_button("confirm_button")
+                .height(Length::from(40))
+                .on_press(Message::Press),
+            cancel_button("cancel_button")
+                .height(Length::from(40))
+                .on_press(Message::Press),
         ]
         .spacing(10)
     ]

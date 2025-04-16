@@ -7,6 +7,7 @@ pub struct Theme {
     pub background: Color,
     pub secondary: Color,
     pub accent: Color,
+    pub border: Color,
 }
 
 impl Default for Theme {
@@ -16,6 +17,7 @@ impl Default for Theme {
             secondary: Color::from_rgb8(155,155,155),
             accent: Color::from_rgb8(0,123,255),
             background: Color::from_rgb8(249,249,249),
+            border: Color::from_rgba8(0,0,0, 0.1),
         }
     }
 }
