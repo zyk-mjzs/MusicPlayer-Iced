@@ -505,7 +505,6 @@ pub fn brands<'a>(c: FontAwesomeBrands) -> Text<'a> {
   text(c.to_str().to_owned()).font(FONT)
 }
 const FONT: Font = Font {
-  family: Family::Name("Font Awesome 6 Free"),
-  weight: iced::font::Weight::Black,
+  family: Family::Name("Font Awesome 6 Brands"),
   ..Font::DEFAULT
 };

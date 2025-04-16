@@ -96,12 +96,20 @@ pub fn {style}<'a>(c: {ident}) -> Text<'a> {{
   text(c.to_str().to_owned()).font(FONT)
 }}
 const FONT: Font = Font {{
-  family: Family::Name("Font Awesome 6 Free"),
-  weight: iced::font::Weight::Black,
-  ..Font::DEFAULT
-}};
 "#
         ));
+        if style == "brands" {
+            lib_output.push_str(r#"  family: Family::Name("Font Awesome 6 Brands"),"#);
+        } else {
+            lib_output.push_str(r#"  family: Family::Name("Font Awesome 6 Free"),"#);
+        }
+        if style == "solid" {
+            lib_output.push_str("\n  weight: iced::font::Weight::Black,");
+        }
+        lib_output.push_str(r#"
+  ..Font::DEFAULT
+};
+"#);
         std::fs::write(lib_output_path, lib_output).unwrap();
     }
     // let output_path = std::path::Path::new("src/icons.rs");

@@ -15,10 +15,6 @@ macro_rules! font_awesome_formats {
     };
 }
 
-mod regular;
-
-pub use regular::*;
-
 mod solid;
 
 pub use solid::*;
@@ -26,3 +22,7 @@ pub use solid::*;
 mod brands;
 
 pub use brands::*;
+
+mod regular;
+
+pub use regular::*;

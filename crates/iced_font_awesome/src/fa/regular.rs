@@ -174,6 +174,5 @@ pub fn regular<'a>(c: FontAwesomeRegular) -> Text<'a> {
 }
 const FONT: Font = Font {
   family: Family::Name("Font Awesome 6 Free"),
-  weight: iced::font::Weight::Black,
   ..Font::DEFAULT
 };
