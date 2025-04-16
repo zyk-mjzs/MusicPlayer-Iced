@@ -1,5 +1,5 @@
 mod index;
 mod left_sidebar;
-mod icon_page;
+mod pages;
 
 pub use index::App;

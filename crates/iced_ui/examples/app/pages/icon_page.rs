@@ -3,11 +3,11 @@ use iced::{Element, Length};
 use iced_font_awesome::{
     FontAwesomeBrands, FontAwesomeRegular, FontAwesomeSolid, brands, regular, solid,
 };
+use crate::app::index::Message;
 
-use super::index::Message;
 use strum::IntoEnumIterator;
 
-pub fn icon_page() -> Element<'static, Message> {
+pub fn icon_page<'a>() -> Element<'a, Message> {
     let solid_icons = FontAwesomeSolid::iter()
         .map(|icon| {
             container(

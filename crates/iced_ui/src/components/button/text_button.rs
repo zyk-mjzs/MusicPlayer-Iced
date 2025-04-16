@@ -63,7 +63,9 @@ where
         let mut btn = button::Button::new(
             text(button.text)
                 .font(button.theme.font.bold)
-                .width(Length::Fill)
+                .width(button.width)
+                .height(button.height)
+                .align_x(button.align_x)
                 .align_y(Vertical::Center),
         )
         .style(move |_, is_hovered: button::Status| button::Style {
@@ -82,6 +84,6 @@ where
             btn = btn.on_press(msg);
         }
 
-        btn.width(button.width).height(button.height).into()
+        btn.into()
     }
 }

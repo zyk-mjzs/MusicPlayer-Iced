@@ -1,8 +1,8 @@
-use iced::widget::{button, column, container, row, text};
+use iced::widget::{container, row};
 use iced::{Element, Length, alignment};
 
-use super::icon_page::icon_page;
 use super::left_sidebar::left_sidebar;
+use super::pages::{button_page, icon_page, progress_page, text_page};
 
 #[derive(Default)]
 pub struct App {
@@ -20,8 +20,7 @@ pub enum Page {
 
 #[derive(Debug, Clone)]
 pub enum Message {
-    Play,
-    Stop,
+    Press,
     NavigateTo(Page),
 }
 
@@ -35,66 +34,12 @@ impl App {
         }
     }
 
-    fn view_text_page(&self) -> Element<Message> {
-        column![
-            text("Text Page")
-                .size(24)
-                .width(Length::Fill)
-                .align_x(alignment::Horizontal::Center),
-            text("This is the text content example.")
-                .size(16)
-                .width(Length::Fill)
-        ]
-        .padding(20)
-        .spacing(20)
-        .width(Length::Fill)
-        .into()
-    }
-
-    fn view_button_page(&self) -> Element<Message> {
-        column![
-            text("Button Page")
-                .size(24)
-                .width(Length::Fill)
-                .align_x(alignment::Horizontal::Center),
-            row![
-                button("Click Me!").on_press(Message::Play),
-                button("Another Button").on_press(Message::Stop)
-            ]
-            .spacing(10)
-        ]
-        .padding(20)
-        .spacing(20)
-        .width(Length::Fill)
-        .into()
-    }
-
-    fn view_progress_page(&self) -> Element<Message> {
-        column![
-            text("Progress Page")
-                .size(24)
-                .width(Length::Fill)
-                .align_x(alignment::Horizontal::Center),
-            text("Progress content will be added here.")
-                .size(16)
-                .width(Length::Fill)
-        ]
-        .padding(20)
-        .spacing(20)
-        .width(Length::Fill)
-        .into()
-    }
-
-    fn view_icon_page(&self) -> Element<Message> {
-        icon_page()
-    }
-
     pub fn view(&self) -> Element<Message> {
         let page_content = match self.current_page {
-            Page::Text => self.view_text_page(),
-            Page::Button => self.view_button_page(),
-            Page::Progress => self.view_progress_page(),
-            Page::Icon => self.view_icon_page(),
+            Page::Text => text_page(),
+            Page::Button => button_page(),
+            Page::Progress => progress_page(),
+            Page::Icon => icon_page(),
         };
 
         let main_content = container(page_content)
