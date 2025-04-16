@@ -21,9 +21,7 @@ pub enum Page {
 #[derive(Debug, Clone)]
 pub enum Message {
     Play,
-    Pause,
     Stop,
-    SelectFile,
     NavigateTo(Page),
 }
 

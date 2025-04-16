@@ -1,6 +1,6 @@
 ## 预览ui
-`cargo run -p iced_ui`
-`cargo watch -x "run -p iced_ui"`
+`cargo run -p iced_ui --example main`
+`cargo watch -x "run -p iced_ui --example main"`
 
 cargo add cargo-bundle
 
