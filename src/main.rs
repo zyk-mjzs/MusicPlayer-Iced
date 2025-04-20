@@ -2,13 +2,14 @@
 
 mod music_player;
 
-use iced::{Font, Settings, Size, window};
+use iced::{Settings, Size, window};
 use music_player::MusicPlayer;
+use iced_ui::Theme;
 
 pub fn main() -> iced::Result {
     iced::application("MusicPlayer", MusicPlayer::update, MusicPlayer::view)
         .settings(Settings {
-            default_font: Font::with_name("PingFang SC"),
+            default_font: Theme::default().font.regular,
             ..Settings::default()
         })
         .window(window::Settings {

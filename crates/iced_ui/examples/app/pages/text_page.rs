@@ -1,6 +1,7 @@
 use crate::app::index::Message;
 use iced::widget::{column, text};
 use iced::{Element, Length, alignment};
+use iced_ui::components::text::common_text;
 
 pub fn text_page<'a>() -> Element<'a, Message> {
     column![
@@ -8,7 +9,7 @@ pub fn text_page<'a>() -> Element<'a, Message> {
             .size(24)
             .width(Length::Fill)
             .align_x(alignment::Horizontal::Center),
-        text("This is the text content example.")
+        common_text("common_text")
             .size(16)
             .width(Length::Fill)
     ]

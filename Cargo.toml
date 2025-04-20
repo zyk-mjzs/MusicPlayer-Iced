@@ -20,6 +20,9 @@ long_description = "A music player built with Rust and Iced framework"
 iced = { version = "0.13.1", features = ["tokio", "system"] }
 rfd = "0.15.3"
 rodio = "0.20.1"
+iced_ui = { path = "crates/iced_ui" }
+iced_font_awesome = { path = "crates/iced_font_awesome" }
+
 
 [profile.release]
 opt-level = 'z'     # 优化级别设置为最小化二进制大小
